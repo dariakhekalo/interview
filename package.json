@@ -1,0 +1,25 @@
+{
+  "name": "api_tests_supertest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "auth.Spec.js",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "mocha": "^10.2.0"
+  },
+  "scripts": {
+    "waves": "mocha tests/waves.test.js",
+    "cockpit": "mocha tests/cockpit.test.js",
+    "debug": "mocha tests/debug.test.js",
+    "start": "SET NODE_ENV=dev && node server.js",
+    "test": "mocha --timeout 10000"
+  },
+  "author": "",
+  "license": "ISC"
+}
