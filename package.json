@@ -17,8 +17,7 @@
     "waves": "mocha tests/waves.test.js",
     "cockpit": "mocha tests/cockpit.test.js",
     "debug": "mocha tests/debug.test.js",
-    "start": "SET NODE_ENV=dev && node server.js",
-    "test": "mocha --timeout 10000"
+    "test": "mocha numbersApi/test.js --timeout 40000"
   },
   "author": "",
   "license": "ISC"

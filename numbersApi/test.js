@@ -4,27 +4,28 @@ const expect = require('chai').expect;
 
 const hostHeader = ['Host', 'numbersapi.com'];
 let listOfDates = [];
-
+let res;
 describe('create and check Array with date and month', () => {
 
-    it('get responses and create an array ', done => {
+    it('get responses and create an array ', async () => {
             for (let i = 0; i < 100; i++) {
-                request(env)
+                res = await request(env)
                     .get('/random/year')
                     .set('content-type', 'application/x-www-form-urlencoded')
                     .set(hostHeader)
-                    .end((err, res) => {
+                    .then(( res) => {
                         let getDates = res.text.match(/(January | February | March | April | May | June | July | August | September | October | November | December)(\d+[a-z]+)/ig);
                         let getDatesString = (getDates == null) ? '' : getDates.join(" ")
                         listOfDates.push(getDatesString)
                         listOfDates = listOfDates.filter(Boolean)
+                        console.log("newArray=", listOfDates)
                     })
             }
         }
     );
 
     it('assertions: check that array has more than 5 elements', function () {
-        console.log("newArray=", listOfDates)
+
         expect(listOfDates).to.have.length.above(5);
     });
 
